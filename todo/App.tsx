@@ -24,6 +24,17 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+declare global {
+  namespace NodeJS {
+    interface Global {
+      document: Document;
+      window: Window;
+      navigator: Navigator;
+      HermesInternal: any;
+    }
+  }
+}
+
 // const App: () => React$Node = () => {
 const App = () => {
   return (
@@ -62,7 +73,7 @@ const App = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Learn More</Text>
               <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
+                RRead the docs to discover what to do next:
               </Text>
             </View>
             <LearnMoreLinks />
