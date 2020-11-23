@@ -24,19 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-declare global {
-  namespace NodeJS {
-    interface Global {
-      document: Document;
-      window: Window;
-      navigator: Navigator;
-      HermesInternal: any;
-    }
-  }
-}
-
-// const App: () => React$Node = () => {
-const App = () => {
+const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -73,7 +61,7 @@ const App = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Learn More</Text>
               <Text style={styles.sectionDescription}>
-                RRRead the docs to discover what to do next:
+                Read the docs to discover what to do next:
               </Text>
             </View>
             <LearnMoreLinks />
