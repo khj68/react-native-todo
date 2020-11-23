@@ -6,7 +6,11 @@
  * @flow strict-local
  */
 
-import React, { ReactElement } from 'react';
+import React, { 
+  ReactElement,
+  useState,
+} from 'react';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,6 +18,7 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
 
 import {
@@ -24,9 +29,16 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => ReactElement = () => {
+function App(): ReactElement {
+  const [count, setCount] = useState<number>(0);
+  const onIncrease = () => setCount(count + 1);
+  const onDecrease = () => setCount(count - 1);
+  
   return (
     <View style={styles.container}>
+      <Text>{count}</Text>
+      <Button onPress={onIncrease} title='+1' />
+      <Button onPress={onDecrease} title='-1' />
       <Text>
         Hello World!!
       </Text>
