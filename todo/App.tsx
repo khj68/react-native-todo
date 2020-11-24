@@ -55,6 +55,17 @@ function HomeScreen({ navigation, route }: Props): ReactElement {
         onPress={() => navigation.navigate('CreatePost')}
       />
       <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+      <Button
+        title="Update the title"
+        onPress={() => 
+          navigation
+          .setOptions({ 
+            title: '안녕타이틀',
+            headerStyle: { backgroundColor: '#f4511e', },
+            headerTintColor: '#fff',
+            headerTitleStyle: { fontWeight: 'bold', },
+          })}
+      />
     </View>
   );
 }
