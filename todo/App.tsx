@@ -121,7 +121,17 @@ function App(): ReactElement {
   
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator 
+        initialRouteName="Home"
+        screenOptions={
+          { 
+            title: '안녕타이틀',
+            headerStyle: { backgroundColor: '#f4511e', },
+            headerTintColor: '#fff',
+            headerTitleStyle: { fontWeight: 'bold', },
+          }
+        }
+        >
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Overview' }}/>
         <Stack.Screen name="CreatePost" component={CreatePostScreen} options={{ title: 'Overview' }}/>
