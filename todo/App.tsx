@@ -129,10 +129,29 @@ function App(): ReactElement {
             headerStyle: { backgroundColor: '#f4511e', },
             headerTintColor: '#fff',
             headerTitleStyle: { fontWeight: 'bold', },
+            headerRight: () => (
+              <Button
+                title="Info"
+                onPress={() => alert('This is a button!')}
+                color="#000"
+              />
+            ),
           }
         }
         >
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen}
+          // options={{
+          //   headerRight: () => (
+          //     <Button
+          //       title="Info"
+          //       onPress={() => alert('This is a button!')}
+          //       color="#000"
+          //     />
+          //   )}}
+          
+        />
         <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Overview' }}/>
         <Stack.Screen name="CreatePost" component={CreatePostScreen} options={{ title: 'Overview' }}/>
       </Stack.Navigator>
