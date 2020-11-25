@@ -42,12 +42,22 @@ type Props = {
 const Stack = createStackNavigator();
 
 function HomeScreen({ navigation, route }: Props): ReactElement {
+  const [count, setCount] = React.useState(0);
+
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Button onPress={() => setCount(c => c+1)} title="Update count"/>
+      )
+    });
+  });
+  
   React.useEffect(() => {
     if (route.params?.post) {
       console.log('post existed');
     }
   }, [route.params?.post]);
-
+  
   return (
     <View style={styles.container}>
       <Button
@@ -66,6 +76,7 @@ function HomeScreen({ navigation, route }: Props): ReactElement {
             headerTitleStyle: { fontWeight: 'bold', },
           })}
       />
+      <Text>Count: {count}</Text>
     </View>
   );
 }
